@@ -52,4 +52,40 @@ const engineerCard = function (engineer) {
     `;
 };
 
+genHTML = (data) => {
+
+    cardArr = [];
+
+    for (let i = 0; i < data.length; i++) {
+        const employee = data[i];
+        const role = employee.getRole();
+
+
+        if (role === 'Manager') {
+            const gendmanagerCard = managerCard(employee);
+
+            cardArr.push(gendmanagerCard);
+        }
+
+        if (role === 'Engineer') {
+            const gendengineerCard = engineerCard(employee);
+
+            cardArr.push(gendengineerCard);
+        }
+
+        if (role === 'Intern') {
+            const gendinternCard = internCard(employee);
+
+            cardArr.push(gendinternCard);
+        }
+
+    }
+
+    const employeeCards = cardArr.join('')
+
+    const generateTeam = genWebpage(employeeCards);
+    return generateTeam;
+
+}
+
 module.exports = genHTML;
