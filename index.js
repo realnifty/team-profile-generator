@@ -7,27 +7,36 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
+const employeeArr = [];
+
 const mngrPrompt = () => {
-    return inquirer.prompt ([
+    return inquirer.prompt([
         {
-            type:'input',
+            type: 'input',
             name: 'name',
             message: `Enter your team manager's name.`
         },
         {
-            type:'input',
+            type: 'input',
             name: 'id',
             message: `Enter your team manager's ID.`
         },
         {
-            type:'input',
+            type: 'input',
             name: 'email',
             message: `Enter your team manager's email address.`
         },
         {
-            type:'input',
+            type: 'input',
             name: 'officeNumber',
             message: `Enter your team manager's office number.`
         }
     ])
+    .then(inputData => {
+        const { name, id, email, officeNumber } = inputData;
+        const manager = new Manager(name, id, email, officeNumber);
+        employeeArr.push(manager);
+    })
 };
+
+mngrPrompt();
