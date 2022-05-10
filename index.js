@@ -116,4 +116,14 @@ const writeFile = data => {
     })
 }
 
-employeePrompt();
+mngrPrompt()
+.then(employeePrompt)
+.then(employeeArr => {
+    return genHTML(employeeArr);
+})
+.then(HTML => {
+    return writeFile(HTML);
+})
+.catch(err => {
+    console.log(err);
+});
