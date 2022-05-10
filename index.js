@@ -82,6 +82,26 @@ const employeePrompt = () => {
             default: false
         }
     ])
+    .then(inputData => {
+        const { name, id, email, role, github, school, addEmployee } = inputData;
+        var employee;
+
+        if(role === 'Engineer') {
+            employee = new Engineer (name, id, email, github);
+        }
+        else if (role === 'Intern') {
+            employee = new Intern (name, id, email, school);
+        }
+
+        employeeArr.push(employee);
+
+        if(addEmployee) {
+            return employeePrompt(employeeArr);
+        }
+        else {
+            return employeeArr;
+        }
+    })
 };
 
 employeePrompt();
