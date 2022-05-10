@@ -8,6 +8,8 @@ A Node.js command-line application that takes in information about employees on 
 
 ![functionality](./assets/images/screenshot.png)
 
+[Link to application functionality] (https://youtu.be/lpXd0v1AfBs)
+
 ## Table of Contents
 
 - [Installation](#installation)
